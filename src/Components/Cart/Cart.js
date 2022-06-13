@@ -180,7 +180,7 @@ function Cart() {
                                 shippingAddress
                                 description={`Your total is $${total}`}
                                 amount={Number((total * 100).toFixed(2))}
-                                stripeKey='pk_test_51HgLGiIH4V5zlESEcyCebKDZ5hoPpsjQUCxw4yQaIegsyN2Eecm0VsS6yFULq3jKbAUOUAQCqsKJlBdqigaU9D7r00udN4wXfB'
+                                stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
                                 token={onToken}
                     >
 
@@ -262,7 +262,7 @@ function Cart() {
                                 shippingAddress
                                 description={`Your total is $${total}`}
                                 amount={Number((total * 100).toFixed(2))}
-                                stripeKey='pk_test_51HgLGiIH4V5zlESEcyCebKDZ5hoPpsjQUCxw4yQaIegsyN2Eecm0VsS6yFULq3jKbAUOUAQCqsKJlBdqigaU9D7r00udN4wXfB'
+                                stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
                                 token={onToken}
                     >
 
