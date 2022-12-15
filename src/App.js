@@ -18,6 +18,7 @@ import Success from './Components/Success/Success'
 import { useDispatch, useSelector } from 'react-redux';
 import Orders from './Components/Orders/Orders';
 import { fetchCartProducts } from './redux/apiCalls'
+import Loading from './Components/Loading/Loading';
 
 
 
@@ -87,7 +88,7 @@ function App() {
           </>}/>
           
           
-          
+          <Route path='/loading' element={<Loading />} />
           
 
 

@@ -33,6 +33,7 @@ export const login = async(dispatch,user) =>
     }
     catch (err)
     {
+        alert(err.message)
         dispatch(loginFail())
     }
 

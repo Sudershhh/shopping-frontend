@@ -9,6 +9,7 @@ import plus from "../../Assets/plus.svg"
 import minus from "../../Assets/minus.svg"
 import { cartDelete, updateCartBackend} from "../../redux/apiCalls"
 import {deleteCartState} from "../../redux/reduxCart"
+import Loading from '../Loading/Loading'
 
 function Cart() {
 
@@ -18,6 +19,7 @@ function Cart() {
 
     const [stripeToken, setStripeToken] = useState(null)
 
+    const [isLoading,setLoading] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -64,7 +66,7 @@ function Cart() {
                     status:res.data.status,
                     payment:res.data.payment_method_details
                 }
-
+                setLoading(true)
                 const orderCreate = await axios.post(`${process.env.REACT_APP_BACKEND_API}api/orders`,orderBody,{headers:{token:`Bearer ${currentUser.accessToken}`}})
                 
                 
@@ -72,7 +74,10 @@ function Cart() {
                 
                 
                 
-                if(orderData) navigate('/orders')
+                if(orderData) {
+                    setLoading(false)
+                    navigate('/orders')
+                }
                 cartDelete(dispatch,currentUser._id,currentUser.accessToken)
 
 
@@ -162,6 +167,10 @@ function Cart() {
 
   return (
     <div className="cart-container">
+
+
+        {isLoading && <Loading />}
+
             <h1 className='bag-title'>YOUR BAG</h1>
             <div className="top-cart">
                 <div className="top-left">

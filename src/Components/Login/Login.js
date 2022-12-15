@@ -23,6 +23,7 @@ function Login() {
 
     if(userNameValue =='' || passwordValue =='')
     {
+      alert('Invalid Credentials')
       return;
     }
 
